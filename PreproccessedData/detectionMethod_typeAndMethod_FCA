@@ -1,0 +1,18 @@
+"METRIC","DETECTION_METHOD","Sum(FINES)","Sum(ARRESTS)","Sum(CHARGES)"
+"mobile_phone_use","Fixed or mobile camera",280801,,0
+"mobile_phone_use","Mobile camera",30491,,
+"mobile_phone_use","Police issued",39971,4,223
+"mobile_phone_use","Unknown",,7,83
+"non_wearing_seatbelts","Fixed or mobile camera",34657,,0
+"non_wearing_seatbelts","Mobile camera",23126,,
+"non_wearing_seatbelts","Police issued",20718,46,627
+"non_wearing_seatbelts","Unknown",,15,248
+"speed_fines","Average speed camera",26606,,
+"speed_fines","Fixed camera",1514213,0,0
+"speed_fines","Fixed or mobile camera",44878,,0
+"speed_fines","Mobile camera",1672407,0,0
+"speed_fines","Other",1,0,0
+"speed_fines","Police issued",526430,146,2228
+"speed_fines","Red light camera",413649,,
+"speed_fines","Unknown",,12,1296
+"unlicensed_driving","Police issued",52852,4333,54105

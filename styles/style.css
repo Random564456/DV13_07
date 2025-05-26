@@ -6,6 +6,10 @@ body {
   padding: 0;
 }
 
+hr {
+  border-top: 1px solid #cccccc;
+  width: 80%;
+}
 
 .container {
   display: flex;
@@ -26,6 +30,7 @@ body {
   justify-content: center;
   align-items: center;
   line-height: 1px;
+  margin-top: 30px;
 }
 
 .header h1 {
@@ -96,6 +101,10 @@ th, td {
 }
 
 #fines-row td {
+  transition: all 1.5s ease;
+}
+
+#charges-row td {
   transition: all 1.5s ease;
 }
 

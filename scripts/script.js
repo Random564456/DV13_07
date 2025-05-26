@@ -22,12 +22,12 @@ d3.csv("data_1/summary_FCA.csv", d3.autoType).then((data) => {
 
   const arc = d3
     .arc()
-    .innerRadius(40)
+    .innerRadius(80)
     .outerRadius(radius - 10);
 
   const arc2 = d3
     .arc()
-    .innerRadius(40)
+    .innerRadius(50)
     .outerRadius(radius);
 
   const pieData = pie(data);
@@ -51,12 +51,6 @@ d3.csv("data_1/summary_FCA.csv", d3.autoType).then((data) => {
     .enter()
     .append("text")
     .filter((d) => d.data.Count / total > 0.02) // only show if more than 2%
-    .text(
-      (d) =>
-        `${parseFloat((d.data.Count / total) * 100).toFixed(
-          1
-        )}%`
-    )
     .attr("transform", (d) => `translate(${arc.centroid(d)})`)
     .style("text-anchor", "middle")
     .style("font-family", "Inter")
@@ -104,6 +98,53 @@ d3.csv("data_1/summary_FCA.csv", d3.autoType).then((data) => {
         .attr('d', arc)
 
         document.querySelectorAll("#fines-row td").forEach(td => {
+        td.style.background = ""
+        td.style.fontSize = "";
+    });
+    });
+  } else {
+    console.warn("No element found with class '.Fines'");
+  }
+
+  const chargesElement = document.querySelector("#Charges");
+  if (chargesElement) {
+    // hover over
+    chargesElement.addEventListener("mouseover", () => {
+      // Increases the size of the text in the slice
+      svg
+        .selectAll("text")
+        .transition()
+        .duration(800)
+        .style("font-size", "20px");
+
+      // Increases the size of the slice 
+      svg.select('#Charges')
+        .transition()
+        .duration(1000)
+        .attr('d', arc2)
+
+      // Changes background colour on table 
+       document.querySelectorAll("#charges-row td").forEach(td => {
+        td.style.background = "rgba(254, 212, 3, 0.3)"
+        td.style.fontSize = "18px";
+    });
+
+    });
+
+
+    // hover off
+    chargesElement.addEventListener("mouseleave", () => {
+      svg
+        .selectAll("text")
+        .transition()
+        .duration(800)
+        .style("font-size", "15px");
+      svg.select('#Charges')
+        .transition()
+        .duration(1000)
+        .attr('d', arc)
+
+        document.querySelectorAll("#charges-row td").forEach(td => {
         td.style.background = ""
         td.style.fontSize = "";
     });

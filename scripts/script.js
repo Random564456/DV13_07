@@ -1,7 +1,7 @@
-d3.csv("data/summary_FCA.csv", d3.autoType).then(data => {
+d3.csv("data_1/summary_FCA.csv", d3.autoType).then(data => {
   const total = d3.sum(data, d => d.Count);
 
-  const width = 400, height = 400, radius = Math.min(width, height) / 2;
+  const width = 350, height = 350, radius = Math.min(width, height) / 2;
 
   const svg = d3.select("#pie-chart")
     .append("svg")
@@ -18,7 +18,7 @@ d3.csv("data/summary_FCA.csv", d3.autoType).then(data => {
     .value(d => d.Count);
 
   const arc = d3.arc()
-    .innerRadius(0)
+    .innerRadius(40)
     .outerRadius(radius - 10);
 
   const pieData = pie(data);
@@ -42,6 +42,7 @@ d3.csv("data/summary_FCA.csv", d3.autoType).then(data => {
     .text(d => `${d.data.Category} (${Math.round((d.data.Count / total) * 100)}%)`)
     .attr("transform", d => `translate(${arc.centroid(d)})`)
     .style("text-anchor", "middle")
+    .style("font-family", "Inter")
     .style("font-size", "13px")
     .style("fill", "#000");
 });

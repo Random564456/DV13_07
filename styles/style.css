@@ -1,17 +1,31 @@
 body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: Inter, sans-serif;
+  font-feature-settings: 'liga' 1, 'calt' 1; /* fix for Chrome */
   background-color: #f9f9f9;
   margin: 0;
   padding: 0;
 }
 
+
 .container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   max-width: 1100px;
   margin: 30px auto;
   padding: 30px;
   background: #fff;
   border-radius: 12px;
   box-shadow: 0 0 15px rgba(0,0,0,0.1);
+  gap: 50px;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  line-height: 1px;
 }
 
 .header h1 {
@@ -27,32 +41,38 @@ body {
 /* Flex container for summary and chart */
 .summary-chart {
   display: flex;
-  justify-content: space-between;
-  gap: 30px;
+  justify-self: center;
+  align-items: center;
   flex-wrap: wrap;
+  margin-left: 20px;
 }
 
 /* Left side - summary */
 .summary {
   flex: 1;
-  min-width: 320px;
+  justify-items: center;
+  max-width: 400px;
+}
+
+summary h1, h3 {
+  padding-bottom: 30px;
 }
 
 .total-count {
-  font-size: 22px;
-  color: #ff6600;
-  margin: 10px 0;
+  font-size: 35px;
+  color: #FF3D4D;
+  margin: 10px;
 }
 
 table {
   width: 100%;
   border-collapse: collapse;
   margin-top: 10px;
-  background: #f5f5f5;
+  background: #ffffff;
 }
 
 table, th, td {
-  border: 1px solid #ccc;
+  border: 1px solid #ffffff;
 }
 
 th {
@@ -67,8 +87,12 @@ th, td {
 /* Right side - chart */
 .chart {
   flex: 1;
-  min-width: 300px;
-  height: 300px;
+  align-self: center;
+}
+
+.chart * {
+  display: flex;
+  justify-self: flex-end;
 }
 
 .placeholder {

@@ -95,12 +95,6 @@ th, td {
   justify-self: flex-end;
 }
 
-.placeholder {
-  margin-top: 30px;
-  font-style: italic;
-  color: #999;
-}
-
 #fines-row td {
   transition: all 1.5s ease;
 }
@@ -121,3 +115,37 @@ th, td {
   font-size: 19px;
 }
 
+.placeholder {
+  display: flex;
+  flex-direction: column;
+  margin-top: 30px;
+  width: 100%;
+  font-style: italic;
+  color: #999;
+}
+
+.placeholder-charts {
+  display: flex;
+  flex-direction: row;
+}
+
+.placeholder-slider {
+  align-self: center;
+}
+
+.placeholder-slider button {
+  padding: 5px 20px;
+  margin: 10px;
+  border: none;
+  background: none;
+  font-size: 18px;
+  cursor: pointer;
+  outline: none;
+  font-weight: 400;
+  transition: transform 0.4s ease;
+}
+
+.placeholder-slider button:hover {
+  transform: scale(1.1); /* slightly enlarge */
+  font-weight: 600;
+}

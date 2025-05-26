@@ -60,7 +60,7 @@ summary h1, h3 {
 
 .total-count {
   font-size: 35px;
-  color: #FF3D4D;
+  color: #00A6D8;
   margin: 10px;
 }
 
@@ -100,3 +100,24 @@ th, td {
   font-style: italic;
   color: #999;
 }
+
+#fines-row td {
+  transition: all 1.5s ease;
+}
+
+.summary-chart-comment {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  line-height: 0.2px;
+  margin-top: 50px;
+}
+
+.summary-chart-comment h4{
+  font-size: 18px;
+}
+.summary-chart-comment h4 strong{
+  color: #00A6D8;
+  font-size: 19px;
+}
+

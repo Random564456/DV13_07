@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Fines in 2023: Trends by Location, Time, and Method</title>
+  <link rel="stylesheet" href="styles/style.css">
+  <link rel="preconnect" href="https://rsms.me/">
+  <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
+</head>
+<body>
+  <div class="container">
+    <!-- HEADER DIV -->
+    <div class="header">
+      <h1>Fines in 2023: Trends by Location, Time, and Method</h1>
+      <p class="subheading">Insights from law enforcement data for improved public policy and awareness.</p>
+    </div>
+
+    <!-- SUMMARY + PIE CHART DIV -->
+    <div class="summary-chart">
+      <!-- SUMMARY DIV -->
+      <div class="summary">
+        <h2>Total amount of Fines, Charges and Arrests in 2023</h2>
+        <h3 class="total-count">4,799,309</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>Category</th>
+              <th>Count</th>
+              <th>Percentage</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr id="fines-row">
+              <td>Fines</td>
+              <td>4,734,887</td>
+              <td>98.65%</td>
+            </tr>
+            <tr>
+              <td>Charges</td>
+              <td>59,849</td>
+              <td>1.24%</td>
+            </tr>
+            <tr>
+              <td>Arrests</td>
+              <td>4,573</td>
+              <td>0.09%</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <!-- PIE CHART DIV -->
+      <div class="chart" id="pie-chart"></div>
+    </div>
+    <div class="summary-chart-comment">
+      <h4>You are not going to be <strong>Fine</strong> if you break the law</h4>
+      <p>The majority of offences received in Australia 2023 resulted in a fine</p>
+    </div>
+
+    <!-- SLIDER DIV -->
+    <div class="placeholder">
+      <div class="placeholder-slider">
+        <button type="button">Location</button>
+        <button type="button">Time of Year</button>
+        <button type="button">Method</button>
+      </div>
+      <div class="placeholder-charts">
+        <div class="placeholder-charts-svgAnchor"></div>
+        <div class="placeholder-charts-chart"></div>
+      </div>
+      <div>
+        <!-- Add second slide -->
+      </div>
+      <div>
+        <!-- Add third slide -->
+      </div>
+    </div>
+  </div>
+  <script src="https://d3js.org/d3.v7.min.js"></script>
+  <script src="scripts/australiaMap.js"></script>
+  <script src="scripts/slider.js"></script>
+  <script src="scripts/script.js"></script>
+</body>
+</html>

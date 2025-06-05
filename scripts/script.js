@@ -1,4 +1,4 @@
-d3.csv("data_1/summary_FCA.csv", d3.autoType).then((data) => {
+d3.csv("preproccessed_data/summary_FCA.csv", d3.autoType).then((data) => {
   const total = d3.sum(data, (d) => d.Count);
 
   const width = 350,

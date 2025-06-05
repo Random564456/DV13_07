@@ -28,7 +28,8 @@ let active = null;
 
 // Load GeoJSON data asynchronously
 async function drawMap() {
-  const json = await d3.json("data_1/aust.json");
+  const json = await d3.json("preproccessed_data/aust.json");
+  const stateData = await d3.csv("preproccessed_data/location_state_FCA.csv");
 
   const states = svg.selectAll("path")
     .data(json.features)
@@ -40,6 +41,10 @@ async function drawMap() {
     .attr("fill", (d, i) => color(i))
     .on("click", drawState)
     .style("cursor", "pointer");
+
+    d3.select(".state-info").html(`
+      <p>Select a state for statistics</p>
+      `);
 
 
   function drawState(event, d) {
@@ -53,7 +58,7 @@ async function drawMap() {
     const x = (bounds[0][0] + bounds[1][0]) / 2;
     const y = (bounds[0][1] + bounds[1][1]) / 2;
     const scale = Math.max(1, 0.95 / Math.max(dx / w, dy / h));
-    const translate = [w / 2 - scale * x , h / 2 - scale * y];
+    const translate = [w / 2 - scale * x, h / 2 - scale * y];
 
     states.transition().duration(1000)
       .attr("transform", `translate(${translate})scale(${scale})`)
@@ -64,6 +69,18 @@ async function drawMap() {
     if (australia) {
       australia.transition().duration(1000).attr("opacity", 0);
     }
+
+    const matched = stateData.find(row => row.JURISDICTION === d.properties.STATE_NAME);
+
+    const infoDiv = d3.select(".state-info");
+    const props = d.properties;
+
+    infoDiv.html(`
+      <h2>${props.STATE_NAME}</h2>
+      <h3><strong>Sum of Fines:</strong> ${matched ? abbreviateNumber(matched["Sum of All Fines/Charges/Arrest"]) : 'N/A'}</h3>
+      <p>Population: ${matched ? abbreviateNumber(matched["Population"]) : 'N/A'}</p>
+      <p>Area: ${matched ? abbreviateNumber(matched["Area (km²)"]) : 'N/A'} km²</p>
+    `);
   }
 
   function reset() {
@@ -79,6 +96,10 @@ async function drawMap() {
     if (australia) {
       australia.transition().duration(1000).attr("opacity", 0.1);
     }
+
+    d3.select(".state-info").html(`
+      <p>Select a state for statistics</p>
+      `);
   }
 
   // Optional: Add a background for Australia
@@ -88,6 +109,15 @@ async function drawMap() {
     .attr("fill", "#f0f0f0")
     .lower()  // Put it behind everything
     .attr("opacity", 0.1);
+}
+
+function abbreviateNumber(value) {
+  if (value === null || value === undefined || isNaN(value)) return 'N/A';
+  const suffixes = ["", "K", "M", "B", "T"];
+  const suffixNum = Math.floor( (""+value).length / 3 );
+  let shortValue = parseFloat((value / Math.pow(1000, suffixNum)).toFixed(2));
+  if (shortValue % 1 === 0) shortValue = shortValue.toFixed(0);
+  return shortValue + suffixes[suffixNum];
 }
 
 drawMap();

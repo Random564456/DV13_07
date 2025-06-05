@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <title>Fines in 2023: Trends by Location, Time, and Method</title>
@@ -7,6 +8,7 @@
   <link rel="preconnect" href="https://rsms.me/">
   <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
 </head>
+
 <body>
   <div class="container">
     <!-- HEADER DIV -->
@@ -59,19 +61,24 @@
     <!-- SLIDER DIV -->
     <div class="placeholder">
       <div class="placeholder-slider">
-        <button type="button">Location</button>
-        <button type="button">Time of Year</button>
-        <button type="button">Method</button>
+        <button type="button" data-slide="0">Location</button>
+        <button type="button" data-slide="1">Time of Year</button>
+        <button type="button" data-slide="2">Method</button>
       </div>
       <div class="placeholder-charts">
-        <div class="placeholder-charts-svgAnchor"></div>
-        <div class="placeholder-charts-chart"></div>
-      </div>
-      <div>
-        <!-- Add second slide -->
-      </div>
-      <div>
-        <!-- Add third slide -->
+        <div class="slides-wrapper">
+          <div class="slide">
+            <div class="placeholder-charts-svgAnchor"></div>
+            <div class="placeholder-charts-chart"></div>
+            <div class="state-info"></div>
+          </div>
+          <div class="slide">
+            <!-- Content for second slide -->
+          </div>
+          <div class="slide">
+            <!-- Content for third slide -->
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -80,4 +87,5 @@
   <script src="scripts/slider.js"></script>
   <script src="scripts/script.js"></script>
 </body>
+
 </html>

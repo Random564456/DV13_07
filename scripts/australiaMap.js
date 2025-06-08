@@ -1,12 +1,12 @@
 // Width and height
-const w = 600;
-const h = 600;
+const w = 500;
+const h = 500;
 
 // Define map projection
 const projection = d3.geoMercator()
   .center([134, -28])
   .translate([w / 2, h / 2])
-  .scale(700);
+  .scale(500);
 
 // Define path generator
 const path = d3.geoPath().projection(projection);
@@ -57,7 +57,7 @@ async function drawMap() {
     const dy = bounds[1][1] - bounds[0][1];
     const x = (bounds[0][0] + bounds[1][0]) / 2;
     const y = (bounds[0][1] + bounds[1][1]) / 2;
-    const scale = Math.max(1, 0.95 / Math.max(dx / w, dy / h));
+    const scale = 2;
     const translate = [w / 2 - scale * x, h / 2 - scale * y];
 
     states.transition().duration(1000)
@@ -77,7 +77,7 @@ async function drawMap() {
 
     infoDiv.html(`
       <h2>${props.STATE_NAME}</h2>
-      <h3><strong>Sum of Fines:</strong> ${matched ? abbreviateNumber(matched["Sum of All Fines/Charges/Arrest"]) : 'N/A'}</h3>
+      <p><strong>Sum of Fines:</strong> ${matched ? abbreviateNumber(matched["Sum of All Fines/Charges/Arrest"]) : 'N/A'}</p>
       <p>Population: ${matched ? abbreviateNumber(matched["Population"]) : 'N/A'}</p>
       <p>Area: ${matched ? abbreviateNumber(matched["Area (km²)"]) : 'N/A'} km²</p>
     `);

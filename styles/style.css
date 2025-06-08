@@ -109,7 +109,24 @@ th, td {
 .summary-chart-comment h4{
   font-size: 18px;
 }
+
 .summary-chart-comment h4 strong{
+  color: #00A6D8;
+  font-size: 19px;
+}
+
+.summary-chart-comment-2 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 80%;
+}
+
+.summary-chart-comment-2 h4{
+  font-size: 18px;
+}
+
+.summary-chart-comment-2 h3{
   color: #00A6D8;
   font-size: 19px;
 }
@@ -162,8 +179,8 @@ th, td {
 
 
 .slide-1-text {
-  width: 20%;
-  height: 200px;
+  width: 40%;
+  height: 400px;
   padding-left: 20px;
   border-left: 2px solid #222;
 } 
@@ -195,26 +212,16 @@ th, td {
   font-family: Arial, sans-serif;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
+  margin-top: 55px;
+  margin-right: 10px;
   border-radius: 8px;
-  padding: 15px 20px;
   user-select: none;
+  width: 200px;
 }
 
-.state-info h2 {
-  margin-top: 0;  gap: 20px;
-  color: #00A6D8;
-  font-size: 1.5em;
-  border-bottom: 2px solid #00A6D8;
-  padding-bottom: 6px;
-}
 
-.state-info p {
-  margin: 8px 0;
-  color: black;
-  font-size: 1em;
-}
-
-.state-info strong {
-  color: #555;
+.slide-2-text {
+  margin: 0 100px;
+  margin-bottom: 20px;
 }

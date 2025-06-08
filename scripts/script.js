@@ -51,12 +51,7 @@ d3.csv("preproccessed_data/summary_FCA.csv", d3.autoType).then((data) => {
     .enter()
     .append("text")
     .filter((d) => d.data.Count / total > 0.02) // only show if more than 2%
-    .text(
-      (d) =>
-        `${parseFloat((d.data.Count / total) * 100).toFixed(
-          1
-        )}%`
-    )
+
     .attr("transform", (d) => `translate(${arc.centroid(d)})`)
     .style("text-anchor", "middle")
     .style("font-family", "Inter")

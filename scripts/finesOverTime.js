@@ -60,21 +60,18 @@ d3.csv("preproccessed_data/year_perMonth_FCA.csv").then(finesData => {
     .style("font-size", "14px")
     .style("z-index", "10");
 
-  // Create invisible overlay for mouse tracking
   const overlay = svg2.append("rect")
     .attr("width", width)
     .attr("height", height)
     .style("fill", "none")
     .style("pointer-events", "all");
 
-  // Create vertical line for hover effect
   const hoverLine = svg2.append("line")
     .attr("stroke", "#666")
     .attr("stroke-width", 1)
     .attr("stroke-dasharray", "3,3")
     .style("opacity", 0);
 
-  // Create hover circle
   const hoverCircle = svg2.append("circle")
     .attr("r", 6)
     .attr("fill", "#FF8A00")
@@ -181,7 +178,6 @@ d3.csv("preproccessed_data/year_perMonth_FCA.csv").then(finesData => {
     .ease(d3.easeLinear)
     .attr("stroke-dashoffset", 0);
 
-  // Animate circles appearing
   circles
     .style("opacity", 0)
     .transition()
@@ -189,7 +185,6 @@ d3.csv("preproccessed_data/year_perMonth_FCA.csv").then(finesData => {
     .delay((d, i) => i * 150)
     .style("opacity", 1);
 
-  // Add title with enhanced styling
   svg2.append("text")
     .attr("x", width / 2)
     .attr("y", -20)
@@ -199,38 +194,9 @@ d3.csv("preproccessed_data/year_perMonth_FCA.csv").then(finesData => {
     .style("fill", "#333")
     .text("Monthly Fines Over Time");
 
-  // Add zoom functionality
-  const zoom = d3.zoom()
-    .scaleExtent([1, 8])
-    .on("zoom", function(event) {
-      const { transform } = event;
-      
-      // Update scales
-      const newX = transform.rescaleX(x);
-      const newY = transform.rescaleY(y);
-      
-      // Update axes
-      svg2.select(".x-axis")
-        .call(d3.axisBottom(newX));
-      svg2.select(".y-axis")
-        .call(d3.axisLeft(newY).tickFormat(d3.format(".2s")));
-      
-      // Update line and circles would require more complex transform handling
-      // For simplicity, we'll just apply the transform to the main group
-    });
-
-  // Add axes classes for zoom functionality
-  svg2.select("g[transform*='translate(0']").attr("class", "x-axis");
-  svg2.selectAll("g").filter(function() {
-    return !d3.select(this).attr("transform");
-  }).attr("class", "y-axis");
-
-  // Enable zoom (uncomment if desired)
-  // svg2.call(zoom);
-
   // Add legend
   const legend = svg2.append("g")
-    .attr("transform", `translate(${width - 100}, 20)`);
+    .attr("transform", `translate(${width - 100}, 80)`);
 
   legend.append("circle")
     .attr("cx", 0)

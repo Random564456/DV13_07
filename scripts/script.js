@@ -16,7 +16,7 @@ d3.csv("preproccessed_data/summary_FCA.csv", d3.autoType).then((data) => {
   const color = d3
     .scaleOrdinal()
     .domain(data.map((d) => d.Category))
-    .range(["#00A6D8", "#FED403", "#8da0cb"]);
+    .range(["#00A6D8", "#FF8A00", "#8da0cb"]);
 
   const pie = d3.pie().value((d) => d.Count);
 

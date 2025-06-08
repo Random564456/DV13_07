@@ -1,5 +1,6 @@
 // bar-chart.js - Interactive Bar Chart for Traffic Violations
 
+
 async function createBarChart() {
     // Parse CSV data
     const parsedData = await d3.csv('preproccessed_data/detectionMethod_method_FCA.csv');

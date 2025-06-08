@@ -1,9 +1,7 @@
-"DETECTION_METHOD","Sum(FINES)","Sum(ARRESTS)","Sum(CHARGES)"
-"Average speed camera",26606,,
-"Fixed camera",1514213,0,0
-"Fixed or mobile camera",360336,,0
-"Mobile camera",1726024,0,0
-"Other",1,0,0
-"Police issued",639971,4529,57183
-"Red light camera",413649,,
-"Unknown",,34,1627
+"METRIC","DETECTION_METHOD","Sum(FINES)"
+"speed_fines","Average speed camera",26606,
+"speed_fines","Fixed camera",1514213,
+"speed_fines","Fixed or mobile camera",44878,
+"speed_fines","Mobile camera",1672407,
+"speed_fines","Police issued",526430,
+"speed_fines","Red light camera",413649,
